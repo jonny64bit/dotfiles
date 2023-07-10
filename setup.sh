@@ -3,21 +3,28 @@
 # what directories should be installed
 configs=(
     qtile
+    rofi
 )
 
-config_directory="$HOME/.config/"
+config_directory="$HOME/.config"
+echo "---- Setup $config_directory ----"
 
-if [ ! -d $config_directory ]; then
-    mkdir $config_directory
-    echo "Created $config_directory Directory"
-else
-    echo "$config_directory Exists"
-fi
+check_and_create_directory () {
+    local path=$1
+    if [ ! -d $path ]; then
+        mkdir $path
+        echo "Created $path Directory"
+    else
+        echo "$path Exists"
+    fi
+}
 
+check_and_create_directory $config_directory
 
 for config in ${configs[@]}; do
     echo ""
     echo "---- Setup $config ----"
+    check_and_create_directory "$config_directory/$config"
     stow -v -R -d "$PWD/$config" -t "$config_directory/$config" .
 done
 
