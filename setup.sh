@@ -4,6 +4,7 @@
 configs=(
     qtile
     rofi
+    alacritty
 )
 
 config_directory="$HOME/.config"
