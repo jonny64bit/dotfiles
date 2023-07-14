@@ -213,11 +213,16 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+
+        Match(wm_class="steam"),
     ]
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
+
+# Fixes high dpi mouse causing lag when moving a window
+x11_drag_polling_rate = 1000
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
