@@ -52,6 +52,10 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "shift"], "f", lazy.window.toggle_floating()),
 
+    # Print Screen
+    Key([], "Print", lazy.spawn("flameshot full --clipboard")),
+    Key([mod], "Print", lazy.spawn("flameshot gui")),
+
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
