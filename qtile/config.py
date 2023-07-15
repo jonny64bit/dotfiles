@@ -18,7 +18,6 @@ colorPurple = "#BD93F9"
 colorCyan = "#8BE9FD"
 colorPink = "#FF79C6"
 
-
 mod = "mod4"
 terminal = guess_terminal()
 
@@ -108,24 +107,25 @@ layouts = [
         border_focus_stack=[colorGreen, "#8f3d3d"], 
         border_width=2
         ),
-    layout.Max(),
-    layout.Floating(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=4),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    layout.Tile(),
-    layout.TreeTab(),
     layout.VerticalTile(
         border_focus=colorGreen,
         border_focus_stack=[colorGreen, "#8f3d3d"], 
         border_width=2,
         border_normal=colorBackground
     ),
-    # layout.Zoomy(),
+    layout.Max(),
+    layout.Floating(),
+    #layout.Stack(num_stacks=4),
+    #layout.Bsp(),
+    #layout.Matrix(),
+    layout.MonadTall(),
+    layout.MonadWide(),
+    #layout.RatioTile(),
+    #layout.Tile(),
+    layout.TreeTab(),
+    #layout.Zoomy(),
+    #layout.Slice(),
+    #layout.Spiral()
 ]
 
 widget_defaults = dict(
@@ -226,7 +226,7 @@ focus_on_window_activation = "smart"
 reconfigure_screens = True
 
 # Fixes high dpi mouse causing lag when moving a window
-x11_drag_polling_rate = 1000
+x11_drag_polling_rate = 500
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
