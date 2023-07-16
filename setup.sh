@@ -5,6 +5,7 @@ configs=(
     qtile
     rofi
     alacritty
+    fish
 )
 
 config_directory="$HOME/.config"
