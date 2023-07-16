@@ -1,20 +1,16 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
+from colors import *
 
 # this import requires python-xlib to be installed
 from Xlib import display as xdisplay
 
-colorBackground = "#282A36"
-colorForeground = "#F8F8F2"
-colorSelection = "#44475A"
-colorComment = "#6272A4"
-colorRed = "#FF5555"
-colorOrange = "#FFB86C"
-colorYellow = "#F1FA8C"
-colorGreen = "#50FA7B"
-colorPurple = "#BD93F9"
-colorCyan = "#8BE9FD"
-colorPink = "#FF79C6"
+widget_defaults = dict(
+    font="JetBrainsMono Nerd Font Bold",
+    fontsize=16,
+    padding=3,
+)
+extension_defaults = widget_defaults.copy()
 
 productive_bar = bar.Bar(
     [
