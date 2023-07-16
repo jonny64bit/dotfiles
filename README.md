@@ -42,12 +42,14 @@ These are the packages im currently using to enable my Arch setup.
 - [Timeshift](https://github.com/linuxmint/timeshift) - btrfs!🥳
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [JetBrains Toolbox](https://www.jetbrains.com/toolbox-app/)
+- [Cronie](https://github.com/cronie-crond/cronie/)
 
 ### 😺 Fun Packages
 
 - [Steam](https://store.steampowered.com/)
+- [Discord](https://discord.com/)
 
-#### Arch Linux
+### 🐟 Arch Linux
 
 1. Install [Paru](https://github.com/Morganamilo/paru) or use your favourite AUR helper.
 
@@ -60,18 +62,19 @@ makepkg -si
 2. Install packages
 
 ```bash
-paru -S qtile python-xlib python-pyxdg python-psutil rofi rofi-emoji xdotool alacritty flameshot nitrogen polkit-gnome ttf-jetbrains-mono-nerd stow fish starship arandr dracula-gtk-theme firefox git github-cli lxappearance neofetch notion-app p7zip thunar timeshift steam visual-studio-code-bin jetbrains-toolbox
+paru -S qtile python-xlib python-pyxdg python-psutil rofi rofi-emoji xdotool alacritty flameshot nitrogen polkit-gnome ttf-jetbrains-mono-nerd stow fish starship arandr dracula-gtk-theme firefox git github-cli lxappearance neofetch notion-app p7zip thunar timeshift visual-studio-code-bin jetbrains-toolbox cronie
 ```
 
 3. Install fun packages
 
 ```bash
-paru -S steam
+paru -S steam ttf-ms-win11-auto discord_arch_electron
 ```
 
 4. Open LXAppearance and set the theme to Dracula.
 5. Open Nitrogen and set the wallpaper to the desired wallpaper.
 6. Login with GitHub CLI `gh auth login`
+7. Setup timeshift scheduled backups.
 
 ### 🔧 Setup 
 
