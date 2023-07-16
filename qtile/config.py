@@ -6,17 +6,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-colorBackground = "#282A36"
-colorForeground = "#F8F8F2"
-colorSelection = "#44475A"
-colorComment = "#6272A4"
-colorRed = "#FF5555"
-colorOrange = "#FFB86C"
-colorYellow = "#F1FA8C"
-colorGreen = "#50FA7B"
-colorPurple = "#BD93F9"
-colorCyan = "#8BE9FD"
-colorPink = "#FF79C6"
+from screens import *
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -134,66 +124,6 @@ widget_defaults = dict(
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
-
-screens = [
-    Screen(
-        top=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(highlight_method='line', this_screen_border=colorGreen, this_current_screen_border=colorGreen, other_screen_border=colorRed, other_current_screen_border=colorRed, hide_unused=True, font='JetBrainsMono Nerd Font'),
-                widget.Prompt(),
-                widget.TaskList(
-                    max_title_width=300,
-                    highlight_method="block",
-                    icon_size=20,
-                    margin_x=1,
-                    margin_y=0,
-                    padding_y=0,
-                    padding_x=1,
-                    rounded=False,
-                    spacing=5,
-                    theme_mode="preferred",
-                    txt_floating="🗗",
-                    txt_minimized="🗕",
-                    txt_maximized="🗖 ",
-                    border=colorSelection
-                    ),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Systray(),
-                widget.Clock(format="%I:%M %p"),
-                widget.QuickExit(default_text='\uf011', padding=10, foreground=colorYellow),
-            ],
-            24,
-            background=colorBackground,
-        ),
-    ),
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(highlight_method='line', this_screen_border=colorRed, this_current_screen_border=colorRed, other_screen_border=colorGreen, other_current_screen_border=colorGreen, hide_unused=True, font='JetBrainsMono Nerd Font'),
-                widget.Spacer(),
-                widget.CPU(),
-                widget.CPUGraph(graph_color=colorPurple, border_color=colorPurple, fill_color=colorPurple),
-                widget.Memory(measure_mem='G', format = '{MemUsed:.2f}G/{MemTotal:.2f}G'),
-                widget.MemoryGraph(graph_color=colorOrange, border_color=colorOrange, fill_color=colorOrange),
-                widget.Net(format='\uea9a {down}'),
-                widget.NetGraph(graph_color=colorGreen, border_color=colorGreen, fill_color=colorGreen),
-                widget.Net(format='\ueaa1 {up}'),
-                widget.NetGraph(bandwidth_type='up', graph_color=colorRed, border_color=colorRed, fill_color=colorRed),
-                widget.DF(visible_on_warn=False, format='{uf}{m}|{r:.0f}%'),
-                widget.HDDBusyGraph(graph_color=colorCyan, border_color=colorCyan, fill_color=colorCyan)
-            ],
-            24,
-            background=colorBackground
-        ),
-    ),
-]
 
 # Drag floating layouts.
 mouse = [
