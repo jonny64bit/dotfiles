@@ -6,6 +6,7 @@ configs=(
     rofi
     alacritty
     fish
+    dunst
 )
 
 config_directory="$HOME/.config"

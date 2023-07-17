@@ -26,7 +26,7 @@ productive_bar = bar.Bar(
         ),
         widget.Prompt(),
         widget.TaskList(
-            max_title_width=300,
+            #max_title_width=300,
             highlight_method="block",
             icon_size=20,
             margin_x=1,
