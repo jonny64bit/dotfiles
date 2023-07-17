@@ -44,6 +44,7 @@ These are the packages im currently using to enable my Arch setup.
 - [JetBrains Toolbox](https://www.jetbrains.com/toolbox-app/)
 - [Cronie](https://github.com/cronie-crond/cronie/)
 - [Dunst](https://dunst-project.org/)
+- [volctl](https://github.com/buzz/volctl)
 
 ### 😺 Fun Packages
 
@@ -63,7 +64,7 @@ makepkg -si
 2. Install packages
 
 ```bash
-paru -S qtile python-xlib python-pyxdg python-psutil rofi rofi-emoji xdotool alacritty flameshot nitrogen polkit-gnome ttf-jetbrains-mono-nerd stow fish starship arandr dracula-gtk-theme firefox git github-cli lxappearance neofetch notion-app p7zip thunar timeshift visual-studio-code-bin jetbrains-toolbox cronie dunst
+paru -S qtile python-xlib python-pyxdg python-psutil rofi rofi-emoji xdotool alacritty flameshot nitrogen polkit-gnome ttf-jetbrains-mono-nerd stow fish starship arandr dracula-gtk-theme firefox git github-cli lxappearance neofetch notion-app p7zip thunar timeshift visual-studio-code-bin jetbrains-toolbox cronie dunst volctl playerctl
 ```
 
 3. Install fun packages

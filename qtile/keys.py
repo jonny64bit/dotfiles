@@ -5,6 +5,8 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 terminal = guess_terminal()
 
+# Full list of keys https://github.com/qtile/qtile/blob/master/libqtile/backend/x11/xkeysyms.py
+
 keys = [
     # Focus
     Key([mod], "space", lazy.next_screen(), desc="Move window focus to next monitor"),
@@ -60,6 +62,16 @@ keys = [
     # Rofi
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
     Key([mod], "period", lazy.spawn("rofi -modi emoji -show emoji"), desc="Emoji picker"),
+
+    # Volume
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("sh /home/jonny64bit/.config/qtile/volume-up.sh")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("sh /home/jonny64bit/.config/qtile/volume-down.sh")),
+    Key([], "XF86AudioMute", lazy.spawn("sh /home/jonny64bit/.config/qtile/volume-mute-toggle.sh")),
+
+    # Audio controls
+    Key([], "XF86AudioNext", lazy.spawn("sh /home/jonny64bit/.config/qtile/playerctl.sh next")),
+    Key([], "XF86AudioPrev", lazy.spawn("sh /home/jonny64bit/.config/qtile/playerctl.sh previuos")),
+    Key([], "XF86AudioPlay", lazy.spawn("sh /home/jonny64bit/.config/qtile/playerctl.sh play-pause")),
 ]
 
 # Drag floating layouts.

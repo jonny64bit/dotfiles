@@ -1,5 +1,9 @@
 # See dunst(5) for all configuration options
 
+#notify-send "ERROR" "this is an error" -u critical
+#notify-send "NORMAL" "this is a normal message" -u normal
+#notify-send "LOW" "this is nothing important" -u low
+
 [global]
     ### Display ###
 
@@ -177,7 +181,7 @@
     stack_duplicates = true
 
     # Hide the count of stacked notifications with the same content
-    hide_duplicate_count = false
+    hide_duplicate_count = true
 
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
@@ -295,7 +299,7 @@
     background = "#282a36"
     foreground = "#6272a4"
     frame_color = "#44475A"
-    timeout = 10
+    timeout = 2
     # Icon for notifications with low urgency, uncomment to enable
     #new_icon = /path/to/icon
 
@@ -303,7 +307,7 @@
     background = "#282a36"
     foreground = "#bd93f9"
     frame_color = "#50FA7B"
-    timeout = 10
+    timeout = 2
     # Icon for notifications with normal urgency, uncomment to enable
     #new_icon = /path/to/icon
 
