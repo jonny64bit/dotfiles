@@ -13,7 +13,6 @@ This was all designed to work on Arch linux but i suspect it will work on other 
 ### 🐟 Arch Linux
 
 1. Install [Paru](https://github.com/Morganamilo/paru) or use your favourite AUR helper.
-
 ```bash
 sudo pacman -S --needed base-devel
 git clone https://aur.archlinux.org/paru.git
@@ -21,23 +20,17 @@ cd paru
 makepkg -si
 ```
 2. Install genernal packages
-
 ```bash
 paru -S qtile python-xlib python-pyxdg python-psutil rofi rofi-emoji xdotool alacritty flameshot nitrogen polkit-gnome ttf-jetbrains-mono-nerd stow fish arandr dracula-gtk-theme starship firefox git lxappearance neofetch p7zip thunar timeshift cronie dunst volctl playerctl
 ```
-
 3. Install fun packages
-
 ```bash
-paru -S steam ttf-ms-win11-auto discord_arch_electron
+paru -S steam ttf-ms-win11-auto discord_arch_electron spotify-launcher
 ```
-
 4. Install development packages
-
 ```bash
-paru -S lazygit github-cli visual-studio-code-bin jetbrains-toolbox notion-app nvm
+paru -S lazygit github-cli visual-studio-code-bin jetbrains-toolbox notion-app nvm git-lfs
 ```
-
 5. Open LXAppearance and set the theme to Dracula.
 6. Open Nitrogen and set the wallpaper to the desired wallpaper.
 7. Login with GitHub CLI `gh auth login`
@@ -51,13 +44,7 @@ nvm use --lts
 ```bash
 npm install -g git-cz
 ```
-
-### 🔧 Setup 
-
-On Linux I'm using [GNU Stow](https://www.gnu.org/software/stow/) to manage the symlinks.
-
-Running the setup script will symlink the dotfiles to the correct locations.
-
+11. Run setup script. Symlinks are managed with [GNU Stow](https://www.gnu.org/software/stow/)
 ```bash
 sh setup.sh
 ```
@@ -72,22 +59,38 @@ sh setup.sh
 
 ## 🪟 Windows Installation
 
+<sub><sup>To many windows package managers! ⚠️ maybe all winget someday!</sup></sub>
+
 1. Install [Scoop](https://scoop.sh/)
-2. Enable scoope extras
+2. Enable scoope buckets
 ```powershell
 scoop bucket add extras
+scoop bucket add nerd-fonts
 ```
-3. Install packages
+3. Install [Chocolatey](https://chocolatey.org/install#individual)
+4. Install [Winget](https://apps.microsoft.com/store/detail/app-installer/9NBLGGH4NNS1?hl=en-gb&gl=gb&rtc=1)
+4. Install packages development packages
 ```powershell
-scoop install lazygit starship gh
+winget install Microsoft.PowerShell
+winget install Microsoft.WindowsTerminal
+scoop install lazygit starship gh nerd-fonts/JetBrains-Mono extras/jetbrains-toolbox
+choco install flameshot firefox 7zip git vscode notion git-lfs
 ```
-4. Install [NVM Windows](https://github.com/coreybutler/nvm-windows)
-5. Install Node LTS
+4. Install packages fun packages
+```powershell
+choco install discord spotify
+```
+5. Install [NVM Windows](https://github.com/coreybutler/nvm-windows)
+6. Install Node LTS
 ```powershell
 nvm install lts
 nvm use lts
 ```
-6. Install global node packages
+7. Install global node packages
 ```powershell
 npm install -g git-cz
+```
+8. Run setup script. Symlinks are added with powershell
+```powershell
+./setup.ps1
 ```
