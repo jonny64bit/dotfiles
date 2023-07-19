@@ -59,7 +59,7 @@ sh setup.sh
 
 ## 🪟 Windows Installation
 
-<sub><sup>To many windows package managers! ⚠️ maybe all winget someday!</sup></sub>
+<sub><sup>⚠️ To many windows package managers! Maybe all winget someday 😥</sup></sub>
 
 1. Install [Scoop](https://scoop.sh/)
 2. Enable scoope buckets
@@ -76,7 +76,7 @@ winget install Microsoft.WindowsTerminal
 scoop install lazygit starship gh nerd-fonts/JetBrains-Mono extras/jetbrains-toolbox
 choco install flameshot firefox 7zip git vscode notion git-lfs
 ```
-4. Install packages fun packages
+4. Install fun packages
 ```powershell
 choco install discord spotify
 ```
@@ -90,7 +90,8 @@ nvm use lts
 ```powershell
 npm install -g git-cz
 ```
-8. Run setup script. Symlinks are added with powershell
+8. Login with GitHub CLI `gh auth login`
+9. Run setup script. Symlinks are added with powershell
 ```powershell
 ./setup.ps1
 ```
