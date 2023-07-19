@@ -7,6 +7,7 @@ configs=(
     alacritty
     fish
     dunst
+    lazygit
 )
 
 config_directory="$HOME/.config"
