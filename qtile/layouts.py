@@ -7,7 +7,8 @@ layouts = [
     layout.Columns(
         border_focus=colorGreen,
         border_focus_stack=[colorGreen, "#8f3d3d"], 
-        border_width=2
+        border_width=2,
+        border_on_single=True
         ),
     layout.VerticalTile(
         border_focus=colorGreen,
@@ -19,7 +20,10 @@ layouts = [
     layout.Floating(),
     layout.MonadTall(),
     layout.MonadWide(),
-    layout.TreeTab(),
+    layout.TreeTab(
+        border_focus=colorGreen,
+        bg_color="#00000000"
+    ),
     #layout.RatioTile(),
     #layout.Tile(),
     #layout.Stack(num_stacks=4),
