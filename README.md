@@ -21,7 +21,7 @@ makepkg -si
 ```
 2. Install genernal packages
 ```bash
-paru -S qtile python-xlib python-pyxdg python-psutil rofi rofi-emoji xdotool alacritty flameshot nitrogen polkit-gnome ttf-jetbrains-mono-nerd stow fish arandr dracula-gtk-theme starship firefox git lxappearance neofetch p7zip thunar timeshift cronie dunst volctl playerctl
+paru -S qtile python-xlib python-pyxdg python-psutil rofi rofi-emoji xdotool alacritty flameshot nitrogen polkit-gnome ttf-jetbrains-mono-nerd stow fish arandr dracula-gtk-theme starship firefox git lxappearance neofetch p7zip thunar timeshift cronie dunst volctl playerctl picom
 ```
 3. Install fun packages
 ```bash
