@@ -24,6 +24,8 @@ makepkg -si
 paru -S qtile python-xlib python-pyxdg python-psutil rofi rofi-emoji xdotool alacritty flameshot nitrogen polkit-gnome ttf-jetbrains-mono-nerd stow fish arandr dracula-gtk-theme starship firefox git lxappearance neofetch p7zip thunar timeshift cronie dunst volctl playerctl picom
 ```
 3. Install fun packages
+    - Steam needs the multilib repository enabled see [docs](https://wiki.archlinux.org/title/Official_repositories#multilib)
+    - Then install these packages
 ```bash
 paru -S steam ttf-ms-win11-auto discord_arch_electron spotify-launcher
 ```
