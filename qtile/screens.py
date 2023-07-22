@@ -46,7 +46,8 @@ productive_bar = bar.Bar(
             },
             name_transform=lambda name: name.upper(),
         ),
-        widget.Systray()
+        widget.Systray(),
+        widget.Spacer(length=5),
     ],
     24,
     background=colorBackground,

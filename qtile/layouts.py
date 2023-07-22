@@ -1,4 +1,3 @@
-
 from libqtile import layout
 from libqtile.config import Match
 from colors import *
@@ -6,32 +5,29 @@ from colors import *
 layouts = [
     layout.Columns(
         border_focus=colorGreen,
-        border_focus_stack=[colorGreen, "#8f3d3d"], 
+        border_focus_stack=[colorGreen, "#8f3d3d"],
         border_width=2,
-        border_on_single=True
-        ),
+        border_on_single=True,
+    ),
     layout.VerticalTile(
         border_focus=colorGreen,
-        border_focus_stack=[colorGreen, "#8f3d3d"], 
+        border_focus_stack=[colorGreen, "#8f3d3d"],
         border_width=2,
-        border_normal=colorBackground
+        border_normal=colorBackground,
     ),
     layout.Max(),
     layout.Floating(),
     layout.MonadTall(),
     layout.MonadWide(),
-    layout.TreeTab(
-        border_focus=colorGreen,
-        bg_color="#00000000"
-    ),
-    #layout.RatioTile(),
-    #layout.Tile(),
-    #layout.Stack(num_stacks=4),
-    #layout.Bsp(),
-    #layout.Matrix(),
-    #layout.Zoomy(),
-    #layout.Slice(),
-    #layout.Spiral()
+    layout.TreeTab(border_focus=colorGreen, bg_color="#00000000"),
+    # layout.RatioTile(),
+    # layout.Tile(),
+    # layout.Stack(num_stacks=4),
+    # layout.Bsp(),
+    # layout.Matrix(),
+    # layout.Zoomy(),
+    # layout.Slice(),
+    # layout.Spiral()
 ]
 
 floating_layout = layout.Floating(
@@ -44,7 +40,6 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-
         Match(wm_class="steam"),
     ]
 )
