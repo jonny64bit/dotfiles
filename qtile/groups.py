@@ -1,7 +1,21 @@
-from libqtile.config import Group, Key
+from libqtile.config import Group, Key, Match
 from keys import *
 
-groups = [Group(i) for i in "123456789"]
+groups = [
+    Group("1"),
+    Group("2"),
+    Group(
+        name="3",
+        layout="max",
+        matches=[Match(wm_class=["discord"]), Match(wm_class=["notion-app"])],
+    ),
+    Group("4"),
+    Group("5"),
+    Group("6"),
+    Group("7"),
+    Group("8"),
+    Group("9")
+]
 
 for i in groups:
     keys.extend(
@@ -17,12 +31,8 @@ for i in groups:
             Key(
                 [mod, "shift"],
                 i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                lazy.window.togroup(i.name),
+                desc="Move focused window to group {}".format(i.name),
             ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
         ]
     )

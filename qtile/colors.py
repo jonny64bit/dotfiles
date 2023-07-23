@@ -1,4 +1,5 @@
 colorBackground = "#282A36"
+colorBackgroundFade = "#282A36DD"
 colorForeground = "#F8F8F2"
 colorSelection = "#44475A"
 colorComment = "#6272A4"

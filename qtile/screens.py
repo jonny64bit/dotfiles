@@ -12,34 +12,48 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-productive_bar = bar.Bar(
-    [
-        widget.CurrentLayoutIcon(),
-        widget.GroupBox(
-            highlight_method="line",
-            this_screen_border=colorGreen,
-            this_current_screen_border=colorGreen,
-            other_screen_border=colorRed,
-            other_current_screen_border=colorRed,
-            hide_unused=True,
-            font="JetBrainsMono Nerd Font",
-        ),
-        widget.Prompt(),
-        widget.TaskList(
+def standard_group_box():
+    return widget.GroupBox(
+        highlight_method="line",
+        this_screen_border=colorGreen,
+        this_current_screen_border=colorGreen,
+        other_screen_border=colorRed,
+        other_current_screen_border=colorRed,
+        hide_unused=True,
+        font="JetBrainsMono Nerd Font Bold",
+        fontsize=22,
+    )
+
+def standard_task_list():
+    return widget.TaskList(
+            title_width_method="uniform",
             highlight_method="block",
-            icon_size=20,
-            margin_x=1,
+            icon_size=24,
+            margin_x=0,
             margin_y=0,
-            padding_y=0,
-            padding_x=1,
-            rounded=False,
+            padding_y=2,
+            padding_x=5,
+            rounded=True,
             spacing=5,
+            markup_focused="<span foreground='#282A36'>{}</span>",
+            font="JetBrainsMono Nerd Font Bold",
+            fontsize=22,
             theme_mode="preferred",
             txt_floating="🗗",
             txt_minimized="🗕",
             txt_maximized="🗖 ",
-            border=colorSelection,
-        ),
+            border=colorGreen,
+        )
+
+
+productive_bar = bar.Bar(
+    [
+        widget.CurrentLayoutIcon(),
+        standard_group_box(),
+        widget.Prompt(),
+        widget.Spacer(),
+        standard_task_list(),
+        widget.Spacer(),
         widget.Chord(
             chords_colors={
                 "launch": ("#ff0000", "#ffffff"),
@@ -49,22 +63,14 @@ productive_bar = bar.Bar(
         widget.Systray(),
         widget.Spacer(length=5),
     ],
-    24,
+    32,
     background=colorBackground,
 )
 
 system_info_bar = bar.Bar(
     [
         widget.CurrentLayoutIcon(),
-        widget.GroupBox(
-            highlight_method="line",
-            this_screen_border=colorGreen,
-            this_current_screen_border=colorGreen,
-            other_screen_border=colorRed,
-            other_current_screen_border=colorRed,
-            hide_unused=True,
-            font="JetBrainsMono Nerd Font",
-        ),
+        standard_group_box(),
         widget.Spacer(),
         widget.CPU(),
         widget.CPUGraph(
@@ -90,28 +96,22 @@ system_info_bar = bar.Bar(
             graph_color=colorCyan, border_color=colorCyan, fill_color=colorCyan
         ),
     ],
-    24,
-    background=colorBackground,
+    32,
+    background=colorBackgroundFade,
 )
 
 third_bar = bar.Bar(
     [
         widget.CurrentLayoutIcon(),
-        widget.GroupBox(
-            highlight_method="line",
-            this_screen_border=colorGreen,
-            this_current_screen_border=colorGreen,
-            other_screen_border=colorRed,
-            other_current_screen_border=colorRed,
-            hide_unused=True,
-            font="JetBrainsMono Nerd Font",
-        ),
+        standard_group_box(),
+        widget.Spacer(),
+        standard_task_list(),
         widget.Spacer(),
         widget.Clock(format="%d/%m/%y %H:%M"),
         widget.QuickExit(default_text="\uf011", padding=10, foreground=colorYellow),
     ],
-    24,
-    background=colorBackground,
+    32,
+    background=colorBackgroundFade,
 )
 
 

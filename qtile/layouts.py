@@ -15,7 +15,7 @@ layouts = [
         border_width=2,
         border_normal=colorBackground,
     ),
-    layout.Max(),
+    layout.Max(border_focus=colorGreen, border_width=2),
     layout.Floating(),
     layout.MonadTall(),
     layout.MonadWide(),
