@@ -114,6 +114,12 @@ keys = [
         "XF86AudioPlay",
         lazy.spawn("sh /home/jonny64bit/.config/qtile/playerctl.sh play-pause"),
     ),
+    # Change Wallpaper
+    Key(
+        [mod],
+        "Home",
+        lazy.spawn("sh /home/jonny64bit/.config/qtile/nitrogren-random-wallpaper.sh"),
+    ),
 ]
 
 # Drag floating layouts.

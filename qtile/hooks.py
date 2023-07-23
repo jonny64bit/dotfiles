@@ -9,3 +9,5 @@ from libqtile import hook
 def autostart():
     home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([home])
+    home = os.path.expanduser("~/.config/qtile/nitrogren-random-wallpaper.sh")
+    subprocess.Popen([home])
