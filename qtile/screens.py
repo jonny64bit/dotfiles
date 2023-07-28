@@ -36,12 +36,13 @@ def standard_task_list():
             rounded=True,
             spacing=5,
             markup_focused="<span foreground='#282A36'>{}</span>",
+            markup_floating="<span foreground='#BD93F9'>🪟{}</span>",
             font="JetBrainsMono Nerd Font Bold",
             fontsize=22,
             theme_mode="preferred",
-            txt_floating="🗗",
-            txt_minimized="🗕",
-            txt_maximized="🗖 ",
+            txt_floating="",
+            txt_minimized="😶‍🌫️",
+            txt_maximized="🎉",
             border=colorGreen,
         )
 
