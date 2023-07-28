@@ -12,6 +12,32 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
+def get_num_monitors():
+    num_monitors = 0
+    try:
+        display = xdisplay.Display()
+        screen = display.screen()
+        resources = screen.root.xrandr_get_screen_resources()
+
+        for output in resources.outputs:
+            monitor = display.xrandr_get_output_info(output, resources.config_timestamp)
+            preferred = False
+            if hasattr(monitor, "preferred"):
+                preferred = monitor.preferred
+            elif hasattr(monitor, "num_preferred"):
+                preferred = monitor.num_preferred
+            if preferred:
+                num_monitors += 1
+    except Exception as e:
+        return 1
+    else:
+        return num_monitors
+
+
+number_of_monitors = get_num_monitors()
+
+
 def standard_group_box():
     return widget.GroupBox(
         highlight_method="line",
@@ -24,45 +50,49 @@ def standard_group_box():
         fontsize=22,
     )
 
+
 def standard_task_list():
     return widget.TaskList(
-            title_width_method="uniform",
-            highlight_method="block",
-            icon_size=24,
-            margin_x=0,
-            margin_y=0,
-            padding_y=2,
-            padding_x=5,
-            rounded=True,
-            spacing=5,
-            markup_focused="<span foreground='#282A36'>{}</span>",
-            markup_floating="<span foreground='#BD93F9'>🪟{}</span>",
-            font="JetBrainsMono Nerd Font Bold",
-            fontsize=22,
-            theme_mode="preferred",
-            txt_floating="",
-            txt_minimized="😶‍🌫️",
-            txt_maximized="🎉",
-            border=colorGreen,
-        )
+        title_width_method="uniform",
+        highlight_method="block",
+        icon_size=24,
+        margin_x=0,
+        margin_y=0,
+        padding_y=2,
+        padding_x=5,
+        rounded=True,
+        spacing=5,
+        markup_focused="<span foreground='#282A36'>{}</span>",
+        markup_floating="<span foreground='#BD93F9'>🪟{}</span>",
+        font="JetBrainsMono Nerd Font Bold",
+        fontsize=22,
+        theme_mode="preferred",
+        txt_floating="",
+        txt_minimized="😶‍🌫️",
+        txt_maximized="🎉",
+        border=colorGreen,
+    )
 
 
-productive_bar = bar.Bar(
-    [
-        widget.CurrentLayoutIcon(),
-        standard_group_box(),
-        widget.Prompt(),
-        widget.Spacer(),
-        standard_task_list(),
-        widget.Spacer(),
-        widget.Chord(
-            chords_colors={
-                "launch": ("#ff0000", "#ffffff"),
-            },
-            name_transform=lambda name: name.upper(),
-        ),
-        widget.Systray(),             
-        widget.Spacer(length=5),
+productive_bar_widgets = [
+    widget.CurrentLayoutIcon(),
+    standard_group_box(),
+    widget.Prompt(),
+    widget.Spacer(),
+    standard_task_list(),
+    widget.Spacer(),
+    widget.Chord(
+        chords_colors={
+            "launch": ("#ff0000", "#ffffff"),
+        },
+        name_transform=lambda name: name.upper(),
+    ),
+    widget.Systray(),
+    widget.Spacer(length=5),
+]
+
+if number_of_monitors == 1:
+    productive_bar_widgets.append(
         widget.Battery(
             discharge_char="BAT:",
             charge_char="",
@@ -74,11 +104,10 @@ productive_bar = bar.Bar(
             low_foreground=colorBackground,
             low_percentage=0.1,
             format=" {char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W ",
-            )
-    ],
-    32,
-    background=colorBackground,
-)
+        )
+    )
+
+productive_bar = bar.Bar(productive_bar_widgets, 32, background=colorBackground)
 
 system_info_bar = bar.Bar(
     [
@@ -126,32 +155,6 @@ third_bar = bar.Bar(
     32,
     background=colorBackgroundFade,
 )
-
-
-def get_num_monitors():
-    num_monitors = 0
-    try:
-        display = xdisplay.Display()
-        screen = display.screen()
-        resources = screen.root.xrandr_get_screen_resources()
-
-        for output in resources.outputs:
-            monitor = display.xrandr_get_output_info(output, resources.config_timestamp)
-            preferred = False
-            if hasattr(monitor, "preferred"):
-                preferred = monitor.preferred
-            elif hasattr(monitor, "num_preferred"):
-                preferred = monitor.num_preferred
-            if preferred:
-                num_monitors += 1
-    except Exception as e:
-        # always setup at least one monitor
-        return 1
-    else:
-        return num_monitors
-
-
-number_of_monitors = get_num_monitors()
 
 
 if number_of_monitors == 1:
