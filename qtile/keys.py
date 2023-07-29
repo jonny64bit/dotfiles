@@ -52,6 +52,10 @@ keys = [
     Key([mod], "m", lazy.layout.maximize()),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "shift"], "f", lazy.window.toggle_floating()),
+    # Set focus to specific monitor
+    Key([mod], "KP_END", lazy.to_screen(0)),
+    Key([mod], "KP_Down", lazy.to_screen(1)),
+    Key([mod], "KP_Page_Down", lazy.to_screen(2)),
     # Print Screen
     Key([], "Print", lazy.spawn("flameshot full --clipboard")),
     Key([mod], "Print", lazy.spawn("flameshot gui")),
@@ -144,6 +148,6 @@ wl_input_rules = None
 
 follow_mouse_focus = True
 bring_front_click = False
-cursor_warp = False
+cursor_warp = True
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
