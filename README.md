@@ -6,7 +6,7 @@ The idea being that I can run the setup script on a new machine and have it setu
 
 I admit though this has spawned into a bit of a monster, but I'm having fun with it. 🤖
 
-## 🐧 Linux Installation 
+## 🐧 Linux Installation
 
 This was all designed to work on Arch linux but i suspect it will work on other distros if you install the correct packages from their package manager.
 
@@ -66,6 +66,7 @@ sh setup.sh
 1. Install [Scoop](https://scoop.sh/)
 2. Enable scoope buckets
 ```powershell
+scoop install git
 scoop bucket add extras
 scoop bucket add nerd-fonts
 ```
@@ -76,7 +77,7 @@ scoop bucket add nerd-fonts
 winget install Microsoft.PowerShell
 winget install Microsoft.WindowsTerminal
 scoop install lazygit starship gh nerd-fonts/JetBrains-Mono extras/jetbrains-toolbox
-choco install flameshot firefox 7zip git vscode notion git-lfs
+choco install flameshot firefox 7zip git vscode git-lfs
 ```
 4. Install fun packages
 ```powershell

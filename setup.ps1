@@ -4,7 +4,7 @@ function Update-Link ($target, $link) {
 
 $appData = (Get-Item -Path Env:appdata).Value
 
-$lazygitConfig = Join-Path $PSScriptRoot lazygit config.yml
+$lazygitConfig = Join-Path $PSScriptRoot "lazygit\config.yml"
 $lazygitFolder = $appData + "\lazygit\"
 
 if (-not (Test-Path -LiteralPath $lazygitFolder)) {
