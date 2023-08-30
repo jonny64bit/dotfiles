@@ -77,7 +77,7 @@ scoop bucket add nerd-fonts
 winget install Microsoft.PowerShell
 winget install Microsoft.WindowsTerminal
 scoop install lazygit starship gh nerd-fonts/JetBrains-Mono extras/jetbrains-toolbox
-choco install flameshot firefox 7zip git vscode git-lfs
+choco install flameshot 7zip git vscode git-lfs
 ```
 4. Install fun packages
 ```powershell
