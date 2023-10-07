@@ -44,3 +44,8 @@ if (-not (Test-Path -LiteralPath $alacrittyThemesFolder)) {
 
 Update-Link $alacrittyConfig ($alacrittyFolder + "\alacritty.yml")
 Update-Link $alacrittyThemeConfig ($alacrittyThemesFolder + "\dracula.yml")
+
+# NEOVIM
+$neovimInputFolder = Join-Path $PSScriptRoot "nvim\"
+$neovimOutputFolder = $appData + "/../Local/nvim/"
+Update-Link $neovimInputFolder $neovimOutputFolder
