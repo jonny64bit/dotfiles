@@ -69,7 +69,7 @@ nnoremap ]] :action MethodDown<cr>
 
 " Search
 nmap <leader>/ :action Find<cr>
-nmap <leader>\ :action FindInPath<cr>
+nmap <leader>. :action FindInPath<cr>
 
 " Popup navigation
 inoremap <C-j> <Action>(PopupMenu-selectNext)
@@ -159,6 +159,7 @@ map <leader># :action Tool_External Tools_Alacritty<cr>
 " Which Key
 "" ========================================================
 let g:WhichKey_FontSize = 16
+let g:WhichKey_Divider = " ➡️ "
 let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#f335b2"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
@@ -184,8 +185,8 @@ let g:WhichKeyDesc_group13 = "<leader>t Tests 🧪"
 let g:WhichKeyDesc_group14 = "<leader>h History 👴"
 let g:WhichKeyDesc_group15 = "<leader>o File Structure 🐓"
 let g:WhichKeyDesc_group16 = "<leader># Alacritty 🕹️"
-let g:WhichKeyDesc_group17 = "<leader><leader> EasyMotion Bad 🦨"
+let g:WhichKeyDesc_group17 = "<leader><leader>"
 
 " Commands
 let g:WhichKeyDesc_fd = "<leader>/ Find 📄🔍"
-let g:WhichKeyDesc_ff = "<leader>\ Find Files 📂🔍"
+let g:WhichKeyDesc_ff = "<leader>. Find Files 📂🔍"
