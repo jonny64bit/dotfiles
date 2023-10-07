@@ -1,0 +1,191 @@
+""" Map leader to Space
+"" ========================================================
+let mapleader=" "
+
+""" Plugins
+"" ========================================================
+set NERDTree
+set easymotion
+set highlightedyank
+set quickscope
+set argtextobj
+set sneak
+set which-key
+
+""" Plugin settings
+"" ========================================================
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Common settings
+"" ========================================================
+
+" which key panel timeout
+set notimeout
+
+set showmode
+set showcmd
+set visualbell
+
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=10
+
+" Do incremental searching.
+set incsearch
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set relativenumber
+set startofline
+
+""" Idea specific settings
+"" ========================================================
+
+set ideajoin
+set idearefactormode=select
+
+"" Key mappings
+"" ========================================================
+
+" move escape to jk
+inoremap jk <Esc>
+
+" Tab navigation
+nnoremap <A-m> :tabnext<CR>
+nnoremap <A-n> :tabprev<CR>
+
+" Pane navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+" Jump between methods
+nnoremap [[ :action MethodUp<cr>
+nnoremap ]] :action MethodDown<cr>
+
+" Search
+nmap <leader>/ :action Find<cr>
+nmap <leader>\ :action FindInPath<cr>
+
+" Popup navigation
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+"" Leader commands
+"" ========================================================
+
+" Comment lines
+map <leader>cl <action>(CommentByLineComment)
+
+" Jump around with easymotion
+map <leader>f <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-f)
+
+" Open NERDTree (use q to exit)
+map <leader>x :NERDTreeToggle<CR>
+
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" Window splits
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+" Actions
+map <leader>am <action>(ShowIntentionActions)
+map <leader>as <action>(SearchEverywhere)
+
+" File navigation
+map <leader>nf <action>(GotoFile)
+map <leader>nr <action>(RecentFiles)
+map <leader>nc <action>(FindInPath)
+map <leader>n<leader> <Action>(RecentFiles)
+map <leader>nl <action>(RecentLocations)
+map <leader>ns <action>(NewScratchFile)
+
+" Close active tab
+map <leader>q <action>(CloseContent)
+
+" Refactoring
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rp <Action>(Refactorings.QuickListPopupAction)
+map <leader>rr <Action>(ReformatCode)
+
+" Go to code
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gy <Action>(GotoTypeDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gu <Action>(ShowUsages)
+map <leader>gt <Action>(GotoTest)
+map <leader>gf <Action>(Back)
+map <leader>gb <Action>(Forward)
+
+" Errors
+map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
+map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+map <S-Space> <Action>(GotoNextError)
+
+" Run & Debugging
+map <leader>dd <Action>(Debug)
+map <leader>dq <Action>(Stop)
+map <leader>db <Action>(ToggleLineBreakpoint)
+
+" Tests
+map <leader>tt :action RerunTests<cr>
+map <leader>tT :action RerunFailedTests<cr>
+
+" Quick Actions
+map <leader>h :action LocalHistory.ShowHistory<cr>
+
+map <leader>o <Action>(FileStructurePopup)
+
+" Tools
+map <leader># :action Tool_External Tools_Alacritty<cr>
+
+" Which Key
+"" ========================================================
+let g:WhichKey_FontSize = 16
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#f335b2"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+let g:WhichKey_ShowTypedSequence = "true"
+let g:WhichKey_ShowVimActions = "true"
+
+let g:WhichKeyDesc_leader = "<leader> Leader key"
+
+" Groups
+let g:WhichKeyDesc_group1 = "<leader>c Commenting 📞"
+let g:WhichKeyDesc_group2 = "<leader>f Easymotion 🐥"
+let g:WhichKeyDesc_group3 = "<leader>x Nerd Tree 🌴"
+let g:WhichKeyDesc_group4 = "<leader>z Folding 🗞️"
+let g:WhichKeyDesc_group5 = "<leader>w Windows 🪟"
+let g:WhichKeyDesc_group6 = "<leader>a Search 🔎"
+let g:WhichKeyDesc_group7 = "<leader>n File Navigation 🌍"
+let g:WhichKeyDesc_group8 = "<leader>q Close File 💩"
+let g:WhichKeyDesc_group9 = "<leader>r Refactoring ✒️"
+let g:WhichKeyDesc_group10 = "<leader>g Go to 🏎️"
+let g:WhichKeyDesc_group11 = "<leader>e Errors 🚨"
+let g:WhichKeyDesc_group12 = "<leader>d Run & Debug 🚦"
+let g:WhichKeyDesc_group13 = "<leader>t Tests 🧪"
+let g:WhichKeyDesc_group14 = "<leader>h History 👴"
+let g:WhichKeyDesc_group15 = "<leader>o File Structure 🐓"
+let g:WhichKeyDesc_group16 = "<leader># Alacritty 🕹️"
+let g:WhichKeyDesc_group17 = "<leader><leader> EasyMotion Bad 🦨"
+
+" Commands
+let g:WhichKeyDesc_fd = "<leader>/ Find 📄🔍"
+let g:WhichKeyDesc_ff = "<leader>\ Find Files 📂🔍"
