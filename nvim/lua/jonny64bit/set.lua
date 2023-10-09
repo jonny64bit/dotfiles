@@ -25,3 +25,5 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.cmd.colorscheme "catppuccin"
+
+vim.opt.cmdheight=0
