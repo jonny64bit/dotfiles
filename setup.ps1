@@ -31,7 +31,7 @@ Update-Link $ideaVimConfig ($userProfile + "\.ideavimrc")
 
 # Alacritty 🦥
 $alacrittyConfig = Join-Path $PSScriptRoot "alacritty-windows\alacritty.yml"
-$alacrittyThemeConfig = Join-Path $PSScriptRoot "alacritty-windows\themes\dracula.yml"
+$alacrittyThemeConfig = Join-Path $PSScriptRoot "alacritty-windows\themes\catppuccin-mocha.yml"
 $alacrittyFolder = $appData + "\alacritty\"
 $alacrittyThemesFolder = $appData + "\alacritty\themes\"
 
@@ -43,7 +43,7 @@ if (-not (Test-Path -LiteralPath $alacrittyThemesFolder)) {
 }
 
 Update-Link $alacrittyConfig ($alacrittyFolder + "\alacritty.yml")
-Update-Link $alacrittyThemeConfig ($alacrittyThemesFolder + "\dracula.yml")
+Update-Link $alacrittyThemeConfig ($alacrittyThemesFolder + "\catppuccin-mocha.yml")
 
 # NEOVIM
 $neovimInputFolder = Join-Path $PSScriptRoot "nvim\"
