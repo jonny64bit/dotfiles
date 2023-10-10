@@ -1,5 +1,4 @@
 require("jonny64bit.set")
-require("jonny64bit.remap")
 require("jonny64bit.which-key")
 
 local lsp_zero = require('lsp-zero')
