@@ -21,6 +21,15 @@ local cmp = require('cmp')
 local cmp_format = require('lsp-zero').cmp_format()
 
 cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
+        ['<C-j>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
+    }),
+    preselect = 'item',
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
