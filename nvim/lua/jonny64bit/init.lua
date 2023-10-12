@@ -4,10 +4,10 @@ require("jonny64bit.which-key")
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({
-    buffer = bufnr,
-    preserve_mappings = false
-  })
+    lsp_zero.default_keymaps({
+        buffer = bufnr,
+        preserve_mappings = false
+    })
 end)
 
 require('mason').setup({})
@@ -17,7 +17,38 @@ require('mason-lspconfig').setup({
     },
 })
 
+local cmp = require('cmp')
+local cmp_format = require('lsp-zero').cmp_format()
+
+cmp.setup({
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+    },
+    --- (Optional) Show source name in completion menu
+    formatting = cmp_format,
+})
+
+cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' }
+    }
+})
+
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
+})
+
 local lspconfig = require('lspconfig')
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 lspconfig.csharp_ls.setup({
     root_dir = function(startpath)
         return lspconfig.util.root_pattern("*.sln")(startpath)
@@ -26,7 +57,7 @@ lspconfig.csharp_ls.setup({
             or lspconfig.util.root_pattern(".git")(startpath)
     end,
     on_attach = on_attach,
-    capabilities = capabilities,
+    capabilities = lsp_capabilities,
 })
 
 require('lualine').setup({
