@@ -14,7 +14,7 @@ return {
             { "<leader>h7", function() require("harpoon.ui").nav_file(7) end, desc = "File 7" },
             { "<leader>h8", function() require("harpoon.ui").nav_file(8) end, desc = "File 8" },
             { "<leader>h9", function() require("harpoon.ui").nav_file(9) end, desc = "File 9" },
-            { "<leader>hq", function() require("harpoon.ui").nav_next() end, desc = "Next File" },
+            { "<leader>hj", function() require("harpoon.ui").nav_next() end, desc = "Next File" },
             { "<leader>hk", function() require("harpoon.ui").nav_prev() end, desc = "Last File" },
         }
     end

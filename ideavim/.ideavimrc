@@ -7,14 +7,15 @@ let mapleader=" "
 set NERDTree
 set easymotion
 set highlightedyank
-set quickscope
 set argtextobj
 set sneak
+set quickscope
 set which-key
 
 """ Plugin settings
 "" ========================================================
 let g:argtextobj_pairs="[:],(:),<:>"
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """ Common settings
 "" ========================================================
@@ -82,36 +83,51 @@ map Q gq
 "" ========================================================
 
 " Comment lines
-map <leader>cl <action>(CommentByLineComment)
+" map <leader>cl <action>(CommentByLineComment)
 
 " Jump around with easymotion
-map <leader>f <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-f)
+map <leader>s <Plug>(easymotion-s)
+" map <leader>e <Plug>(easymotion-f)
 
 " Open NERDTree (use q to exit)
-map <leader>x :NERDTreeToggle<CR>
+" map <leader>x :NERDTreeToggle<CR>
 
 " Folding
-map <leader>zc :action CollapseAllRegions<CR>
-map <leader>zo :action ExpandAllRegions<CR>
+" map <leader>zc :action CollapseAllRegions<CR>
+" map <leader>zo :action ExpandAllRegions<CR>
 
 " Window splits
-map <leader>wv <Action>(SplitVertically)
-map <leader>ws <Action>(SplitHorizontally)
-map <leader>wu <Action>(Unsplit)
-map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+" map <leader>wv <Action>(SplitVertically)
+" map <leader>ws <Action>(SplitHorizontally)
+" map <leader>wu <Action>(Unsplit)
+" map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
 
 " Actions
-map <leader>am <action>(ShowIntentionActions)
-map <leader>as <action>(SearchEverywhere)
+" map <leader>am <action>(ShowIntentionActions)
+" map <leader>as <action>(SearchEverywhere)
 
+" 🔭 Telescope
 " File navigation
-map <leader>nf <action>(GotoFile)
-map <leader>nr <action>(RecentFiles)
-map <leader>nc <action>(FindInPath)
-map <leader>n<leader> <Action>(RecentFiles)
-map <leader>nl <action>(RecentLocations)
-map <leader>ns <action>(NewScratchFile)
+map <leader>ff <action>(GotoFile)
+map <leader>fb <action>(Switcher)
+map <leader>ft <action>(TextSearchAction)
+map <leader>fo <action>(RecentFiles)
+map <leader>fs <Action>(FileStructurePopup)
+
+" ⚓ Harpoon
+map <leader>hh <action>(ShowBookmarks)
+map <leader>ha <action>(ToggleBookmarkWithMnemonic)
+map <leader>h1 <action>(GotoBookmark1)
+map <leader>h2 <action>(GotoBookmark2)
+map <leader>h3 <action>(GotoBookmark3)
+map <leader>h4 <action>(GotoBookmark4)
+map <leader>h5 <action>(GotoBookmark5)
+map <leader>h6 <action>(GotoBookmark6)
+map <leader>h7 <action>(GotoBookmark7)
+map <leader>h8 <action>(GotoBookmark8)
+map <leader>h9 <action>(GotoBookmark9)
+map <leader>hj <action>(GotoNextBookmark)
+map <leader>hk <action>(GotoPreviousBookmark)
 
 " Close active tab
 map <leader>q <action>(CloseContent)
@@ -134,27 +150,14 @@ map <leader>gt <Action>(GotoTest)
 map <leader>gf <Action>(Back)
 map <leader>gb <Action>(Forward)
 
-" Errors
-map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
-map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
-map <S-Space> <Action>(GotoNextError)
-
 " Run & Debugging
-map <leader>dd <Action>(Debug)
-map <leader>dq <Action>(Stop)
-map <leader>db <Action>(ToggleLineBreakpoint)
-
-" Tests
-map <leader>tt :action RerunTests<cr>
-map <leader>tT :action RerunFailedTests<cr>
-
-" Quick Actions
-map <leader>h :action LocalHistory.ShowHistory<cr>
-
-map <leader>o <Action>(FileStructurePopup)
-
-" Tools
-map <leader># :action Tool_External Tools_Alacritty<cr>
+map <leader>pd <Action>(Debug)
+map <leader>pq <Action>(Stop)
+map <leader>pb <Action>(ToggleLineBreakpoint)
+map <leader>pt :action RerunTests<cr>
+map <leader>pT :action RerunFailedTests<cr>
+map <leader>pp :action Tool_External Tools_Alacritty<cr>
+map <leader>pr :action IdeaVim.ReloadVimRc.reload<cr> 
 
 " Which Key
 "" ========================================================
@@ -169,24 +172,15 @@ let g:WhichKey_ShowVimActions = "true"
 let g:WhichKeyDesc_leader = "<leader> Leader key"
 
 " Groups
-let g:WhichKeyDesc_group1 = "<leader>c Commenting 📞"
-let g:WhichKeyDesc_group2 = "<leader>f Easymotion 🐥"
-let g:WhichKeyDesc_group3 = "<leader>x Nerd Tree 🌴"
-let g:WhichKeyDesc_group4 = "<leader>z Folding 🗞️"
-let g:WhichKeyDesc_group5 = "<leader>w Windows 🪟"
-let g:WhichKeyDesc_group6 = "<leader>a Search 🔎"
-let g:WhichKeyDesc_group7 = "<leader>n File Navigation 🌍"
-let g:WhichKeyDesc_group8 = "<leader>q Close File 💩"
-let g:WhichKeyDesc_group9 = "<leader>r Refactoring ✒️"
-let g:WhichKeyDesc_group10 = "<leader>g Go to 🏎️"
-let g:WhichKeyDesc_group11 = "<leader>e Errors 🚨"
-let g:WhichKeyDesc_group12 = "<leader>d Run & Debug 🚦"
-let g:WhichKeyDesc_group13 = "<leader>t Tests 🧪"
-let g:WhichKeyDesc_group14 = "<leader>h History 👴"
-let g:WhichKeyDesc_group15 = "<leader>o File Structure 🐓"
-let g:WhichKeyDesc_group16 = "<leader># Alacritty 🕹️"
-let g:WhichKeyDesc_group17 = "<leader><leader>"
+let g:WhichKeyDesc_group1 = "<leader>h Harpoon ⚓"
+let g:WhichKeyDesc_group2 = "<leader>f Telescope 🔭"
+let g:WhichKeyDesc_group3 = "<leader>p Run & Debugging 🏃"
+let g:WhichKeyDesc_group4 = "<leader>s Sneak 👟"
+let g:WhichKeyDesc_group5 = "<leader>q Close ❌"
+let g:WhichKeyDesc_group6 = "<leader>r Refactor ✒️""
+
+let g:WhichKeyDesc_group6 = "<leader><leader>"
 
 " Commands
 let g:WhichKeyDesc_fd = "<leader>/ Find 📄🔍"
-let g:WhichKeyDesc_ff = "<leader>. Find Files 📂🔍"
+" let g:WhichKeyDesc_ff = "<leader>. Find Files 📂🔍"
