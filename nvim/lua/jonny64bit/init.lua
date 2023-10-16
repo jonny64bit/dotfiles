@@ -22,7 +22,7 @@ local cmp_format = require('lsp-zero').cmp_format()
 
 cmp.setup({
     mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
         ['<C-j>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
     }),
@@ -103,6 +103,22 @@ lspconfig.lua_ls.setup {
 
 lspconfig.gopls.setup({
    capabilities = lsp_capabilities,
+})
+
+lspconfig.html.setup({
+   capabilities = lsp_capabilities,
+})
+
+lspconfig.tailwindcss.setup({
+   capabilities = lsp_capabilities,
+})
+
+lspconfig.eslint.setup({
+   capabilities = lsp_capabilities,
+})
+
+lspconfig.jsonls.setup({
+    capabilities = lsp_capabilities,
 })
 
 require('lualine').setup({
