@@ -19,7 +19,7 @@ wk.register({
         o = { '<cmd>lua vim.lsp.buf.declaration()<cr>', "Declaration" },
         i = { '<cmd>Telescope lsp_implementations<cr>', "Implementations" },
         y = { '<cmd>lua vim.lsp.buf.type_definition()<cr>', "Type Definition" },
-        r = { '<cmd>lua vim.lsp.buf.references()<cr>', "References" },
+        r = { '<cmd>Telescope lsp_references<cr>', "References" },
         s = { '<cmd>lua vim.lsp.buf.signature_help()<cr>', "Signature Help" },
     },
     ["<leader>r"] = {
