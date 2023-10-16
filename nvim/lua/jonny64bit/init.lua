@@ -23,6 +23,7 @@ local cmp_format = require('lsp-zero').cmp_format()
 cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
         ['<C-j>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
     }),
@@ -66,7 +67,7 @@ lspconfig.csharp_ls.setup({
             or lspconfig.util.root_pattern("*.fsproj")(startpath)
             or lspconfig.util.root_pattern(".git")(startpath)
     end,
-   capabilities = lsp_capabilities,
+    capabilities = lsp_capabilities,
 })
 
 lspconfig.lua_ls.setup {
@@ -102,7 +103,7 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.gopls.setup({
-   capabilities = lsp_capabilities,
+    capabilities = lsp_capabilities,
 })
 
 require('lualine').setup({
