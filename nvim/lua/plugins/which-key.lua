@@ -1,4 +1,4 @@
 return {
-    "folke/which-key.nvim", 
-    tag = '1.5.1' 
+    "folke/which-key.nvim",
+    tag = '1.5.1'
 }
