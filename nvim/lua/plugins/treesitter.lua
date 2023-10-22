@@ -12,7 +12,8 @@ return {
             "c_sharp",
             "dockerfile",
             "scss",
-            "yaml"
+            "yaml",
+            "go"
         },
         sync_install = false,
         auto_install = true,
