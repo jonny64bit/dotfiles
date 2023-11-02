@@ -52,7 +52,7 @@ set idearefactormode=select
 "" ========================================================
 
 " move escape to jk
-inoremap jk <Esc>
+"inoremap jk <Esc>
 
 " Tab navigation
 nnoremap <A-m> :tabnext<CR>

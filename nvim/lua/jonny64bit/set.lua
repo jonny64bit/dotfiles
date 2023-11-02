@@ -28,7 +28,7 @@ vim.cmd.colorscheme "catppuccin"
 
 vim.opt.cmdheight = 0
 
-vim.keymap.set("i", "jk", "<esc>")
+-- vim.keymap.set("i", "jk", "<esc>")
 
 -- Shell Options
 local powershell_options = {
