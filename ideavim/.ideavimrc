@@ -24,7 +24,6 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 set notimeout
 
 set showmode
-set showcmd
 set visualbell
 
 " Show a few lines of context around the cursor. Note that this makes the
@@ -40,6 +39,7 @@ set incsearch
 set hlsearch
 
 set relativenumber
+set number
 set startofline
 
 """ Idea specific settings
