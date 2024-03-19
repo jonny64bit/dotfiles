@@ -30,8 +30,8 @@ $ideaVimConfig = Join-Path $PSScriptRoot ".\ideavim\.ideavimrc"
 Update-Link $ideaVimConfig ($userProfile + "\.ideavimrc")
 
 # Alacritty 🦥
-$alacrittyConfig = Join-Path $PSScriptRoot "alacritty-windows\alacritty.yml"
-$alacrittyThemeConfig = Join-Path $PSScriptRoot "alacritty-windows\themes\catppuccin-mocha.yml"
+$alacrittyConfig = Join-Path $PSScriptRoot "alacritty-windows\alacritty.toml"
+$alacrittyThemeConfig = Join-Path $PSScriptRoot "alacritty-windows\themes\catppuccin-mocha.toml"
 $alacrittyFolder = $appData + "\alacritty\"
 $alacrittyThemesFolder = $appData + "\alacritty\themes\"
 
@@ -42,8 +42,8 @@ if (-not (Test-Path -LiteralPath $alacrittyThemesFolder)) {
     New-Item -ItemType Directory $alacrittyThemesFolder
 }
 
-Update-Link $alacrittyConfig ($alacrittyFolder + "\alacritty.yml")
-Update-Link $alacrittyThemeConfig ($alacrittyThemesFolder + "\catppuccin-mocha.yml")
+Update-Link $alacrittyConfig ($alacrittyFolder + "\alacritty.toml")
+Update-Link $alacrittyThemeConfig ($alacrittyThemesFolder + "\catppuccin-mocha.toml")
 
 # NEOVIM
 $neovimInputFolder = Join-Path $PSScriptRoot "nvim\"
