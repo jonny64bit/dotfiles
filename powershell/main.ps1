@@ -10,4 +10,4 @@ function Set-Gaming {
     net stop "MSSQLSERVER" 
 }
 
-
+$env:KOMOREBI_CONFIG_HOME = $env:USERPROFILE + "\.config\komorebi"
