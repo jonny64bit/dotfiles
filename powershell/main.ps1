@@ -9,5 +9,3 @@ function Set-Gaming {
     Get-Process -Name "OneDrive" -ErrorAction SilentlyContinue | Stop-Process -Force
     net stop "MSSQLSERVER" 
 }
-
-$env:KOMOREBI_CONFIG_HOME = $env:USERPROFILE + "\.config\komorebi"

@@ -5,6 +5,9 @@ function Update-Link ($target, $link) {
 $appData = (Get-Item -Path Env:appdata).Value
 $userProfile = $env:USERPROFILE
 
+# Add Long path suport.
+Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
+
 # Lazygit 🦥
 $lazygitConfig = Join-Path $PSScriptRoot "lazygit\config.yml"
 $lazygitFolder = $appData + "\lazygit\"
@@ -54,3 +57,8 @@ Update-Link $neovimInputFolder $neovimOutputFolder
 $komorebiInputFolder = Join-Path $PSScriptRoot "komorebi"
 $komorebiOutputFolder = Join-Path $userProfile ".config\komorebi"
 Update-Link $komorebiInputFolder $komorebiOutputFolder
+
+# whkd
+$whkdInputFolder = Join-Path $PSScriptRoot "whkd"
+$whkdOutputFolder = Join-Path $userProfile ".config\whkd"
+Update-Link $whkdInputFolder $whkdOutputFolder
