@@ -61,4 +61,4 @@ customCommands:
         title: "Commit"
         body: "Are you sure you want to commit?"
     command: "git commit --message '{{.Form.Type}}{{.Form.Scope}}{{.Form.Breaking}}: {{.Form.Message}}'"
-    loadingText: "Creating conventional commit..."
+    loadingText: "Creating conventional commit message..."
