@@ -51,9 +51,6 @@ set idearefactormode=select
 "" Key mappings
 "" ========================================================
 
-" move escape to jk
-"inoremap jk <Esc>
-
 " Tab navigation
 nnoremap <A-m> :tabnext<CR>
 nnoremap <A-n> :tabprev<CR>
@@ -73,8 +70,8 @@ nmap <leader>/ :action Find<cr>
 nmap <leader>. :action FindInPath<cr>
 
 " Popup navigation
-inoremap <C-j> <Action>(PopupMenu-selectNext)
-inoremap <C-k> <Action>(PopupMenu-selectPrev)
+map <C-j> <Action>(EditorDown)
+map <C-k> <Action>(EditorUp)
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
@@ -113,6 +110,7 @@ map <leader>fb <action>(Switcher)
 map <leader>ft <action>(TextSearchAction)
 map <leader>fo <action>(RecentFiles)
 map <leader>fs <Action>(FileStructurePopup)
+map <leader>fc <Action>(GotoClass)
 
 " ⚓ Harpoon
 map <leader>hh <action>(ShowBookmarks)
