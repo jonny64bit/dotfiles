@@ -138,6 +138,7 @@ map <leader>rf <Action>(IntroduceField)
 map <leader>rs <Action>(ChangeSignature)
 map <leader>rp <Action>(Refactorings.QuickListPopupAction)
 map <leader>rr <Action>(ReformatCode)
+map <leader>rc <action>(CommentByLineComment)
 
 " Go to code
 map <leader>gd <Action>(GotoDeclaration)
