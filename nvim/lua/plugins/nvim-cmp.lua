@@ -2,8 +2,6 @@ return {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-        { 'L3MON4D3/LuaSnip' },
-        { 'saadparwaiz1/cmp_luasnip' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/cmp-buffer' },
         { 'hrsh7th/cmp-path' },
@@ -11,45 +9,50 @@ return {
         "copilot.lua"
     },
     config = function()
-        local lsp_zero = require('lsp-zero')
-        lsp_zero.extend_cmp()
-
         local cmp = require('cmp')
-        local cmp_format = lsp_zero.cmp_format()
 
         cmp.setup({
+            snippet = {
+                -- REQUIRED - you must specify a snippet engine
+                expand = function(args)
+                  -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                  -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                  -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+                  -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+                  vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+                end,
+            },
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            },
             mapping = cmp.mapping.preset.insert({
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
                 ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
                 ['<C-j>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
             }),
-            preselect = 'item',
-            completion = {
-                completeopt = 'menu,menuone,noinsert'
-            },
             sources = {
-                { name = 'copilot' },
                 { name = 'nvim_lsp' },
-                { name = 'luasnip' },
+                { name = 'copilot' },
                 { name = 'buffer' },
-            },
-            --- (Optional) Show source name in completion menu
-            formatting = cmp_format,
+            }
         })
 
         cmp.setup.cmdline({ '/', '?' }, {
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
-                { name = 'buffer' }
+              { name = 'buffer' }
             }
         })
 
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
-                { name = 'path' }
+              { name = 'path' }
             }, {
-                { name = 'cmdline' }
-            })
+              { name = 'cmdline' }
+            }),
+            matching = { disallow_symbol_nonprefix_matching = false }
         })
     end
 }

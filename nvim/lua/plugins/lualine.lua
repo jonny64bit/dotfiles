@@ -3,6 +3,7 @@ return {
     opts = {
         {
             options = {
+                theme = "catppuccin",
                 section_separators = {
                     left = '',
                     right = '',

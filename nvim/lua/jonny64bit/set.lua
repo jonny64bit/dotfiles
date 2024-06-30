@@ -24,7 +24,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "catppuccin-mocha"
 
 vim.opt.cmdheight = 0
 
@@ -43,4 +43,8 @@ local powershell_options = {
 
 for option, value in pairs(powershell_options) do
     vim.opt[option] = value
+end
+
+if vim.g.neovide then
+    vim.opt.guifont = "JetBrainsMono Nerd Font:h11"
 end

@@ -5,10 +5,5 @@ return {
   opts = {
     suggestion = { enabled = false },
     panel = { enabled = false },
-  },
-  filetypes = {
-    cs = true,
-    csharp = true,
-    ts = true,
   }
 }
