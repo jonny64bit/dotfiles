@@ -27,7 +27,9 @@ wk.register({
             n = { '<cmd>lua vim.lsp.buf.rename()<cr>', "Rename" },
             p = { '<cmd>lua vim.lsp.buf.code_action()<cr>', "Code Action" },
         },
-        ["<C-v>"] = { '"+p"', "Paste Clipboard" }
+        ["<C-v>"] = { '"+p"', "Paste Clipboard" },
+        ["<A-,>"] = { '<cmd>:bprevious<cr>', "Last Buffer" },
+        ["<A-.>"] = { '<cmd>:bnext<cr>', "Next Buffer" }
     },
     {
         mode = "n"

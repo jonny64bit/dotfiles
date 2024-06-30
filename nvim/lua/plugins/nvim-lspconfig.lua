@@ -24,10 +24,16 @@ return {
         require("fidget").setup({})
         require("mason").setup()
 
+        local mason_registry = require('mason-registry')
+        local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'        
+
         require('mason-lspconfig').setup({
             ensure_installed = {
                 "lua_ls",
-                "rust_analyzer"
+                "rust_analyzer",
+                "tsserver",
+                "volar",
+                "tailwindcss"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -51,20 +57,23 @@ return {
                     }
                 end,
 
-                csharp_ls = function()
-                    local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-                    local lspconfig = require('lspconfig')
-
-                    lspconfig.csharp_ls.setup({
-                        root_dir = function(startpath)
-                            return lspconfig.util.root_pattern("*.sln")(startpath)
-                                or lspconfig.util.root_pattern("*.csproj")(startpath)
-                                or lspconfig.util.root_pattern("*.fsproj")(startpath)
-                                or lspconfig.util.root_pattern(".git")(startpath)
-                        end,
-                        capabilities = lsp_capabilities,
-                    })
-                end
+                ["tsserver"] = function() 
+                    local lspconfig = require("lspconfig")
+                    lspconfig.tsserver.setup {
+                        capabilities = capabilities,
+                        root_dir = require("lspconfig").util.root_pattern('tsconfig.json', 'package.json', '.git'),
+                        init_options = {
+                          plugins = {
+                            {
+                              name = '@vue/typescript-plugin',
+                              location = vue_language_server_path,
+                              languages = { 'vue' },
+                            },
+                          },
+                        },
+                        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+                      }
+                end,                
             }
         })
     end
