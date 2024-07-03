@@ -13,7 +13,6 @@ return {
         "j-hui/fidget.nvim"
     },
     config = function()
-        local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
             "force",
@@ -25,7 +24,8 @@ return {
         require("mason").setup()
 
         local mason_registry = require('mason-registry')
-        local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'        
+        local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() ..
+        '/node_modules/@vue/language-server'
 
         require('mason-lspconfig').setup({
             ensure_installed = {
@@ -33,7 +33,8 @@ return {
                 "rust_analyzer",
                 "tsserver",
                 "volar",
-                "tailwindcss"
+                "tailwindcss",
+                "jsonls"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -57,23 +58,23 @@ return {
                     }
                 end,
 
-                ["tsserver"] = function() 
+                ["tsserver"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.tsserver.setup {
                         capabilities = capabilities,
                         root_dir = require("lspconfig").util.root_pattern('tsconfig.json', 'package.json', '.git'),
                         init_options = {
-                          plugins = {
-                            {
-                              name = '@vue/typescript-plugin',
-                              location = vue_language_server_path,
-                              languages = { 'vue' },
+                            plugins = {
+                                {
+                                    name = '@vue/typescript-plugin',
+                                    location = vue_language_server_path,
+                                    languages = { 'vue' },
+                                },
                             },
-                          },
                         },
                         filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-                      }
-                end,                
+                    }
+                end,
             }
         })
     end
