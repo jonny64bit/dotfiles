@@ -52,10 +52,9 @@ set idearefactormode=select
 "" ========================================================
 
 " Tab navigation
-nnoremap <A-m> :tabnext<CR>
-nnoremap <A-n> :tabprev<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprev<CR>
 
-" Pane navigation
 nnoremap <A-h> <C-w>h
 nnoremap <A-l> <C-w>l
 nnoremap <A-k> <C-w>k
@@ -67,7 +66,10 @@ nnoremap ]] :action MethodDown<cr>
 
 " Search
 nmap <leader>/ :action Find<cr>
+let g:WhichKeyDesc_fd = "<leader>/ Find 📄🔍"
+
 nmap <leader>. :action FindInPath<cr>
+let g:WhichKeyDesc_fd = "<leader>. Find In Files📄🔍"
 
 " Popup navigation
 map <C-j> <Action>(EditorDown)
@@ -114,21 +116,19 @@ map <leader>fc <Action>(GotoClass)
 
 " ⚓ Harpoon
 map <leader>hh <action>(ShowBookmarks)
-map <leader>ha <action>(ToggleBookmarkWithMnemonic)
-map <leader>h1 <action>(GotoBookmark1)
-map <leader>h2 <action>(GotoBookmark2)
-map <leader>h3 <action>(GotoBookmark3)
-map <leader>h4 <action>(GotoBookmark4)
-map <leader>h5 <action>(GotoBookmark5)
-map <leader>h6 <action>(GotoBookmark6)
-map <leader>h7 <action>(GotoBookmark7)
-map <leader>h8 <action>(GotoBookmark8)
-map <leader>h9 <action>(GotoBookmark9)
+map <leader>ha <action>(ToggleBookmark)
 map <leader>hj <action>(GotoNextBookmark)
 map <leader>hk <action>(GotoPreviousBookmark)
 
+let g:WhichKeyDesc_bookmarks = "<leader>h Bookmarks 🔖"
+let g:WhichKeyDesc_show_bookmarks = "<leader>hh Show 🎭"
+let g:WhichKeyDesc_toggle_bookmark = "<leader>ha Toggle ✅"
+let g:WhichKeyDesc_next_bookmark = "<leader>hj Next ⏭️"
+let g:WhichKeyDesc_last_bookmark = "<leader>hk Previous ⏮️"
+
 " Close active tab
 map <leader>q <action>(CloseContent)
+let g:WhichKeyDesc_run_selected_tests = "<leader>q Close 🎭"
 
 " Refactoring
 map <leader>rn <Action>(RenameElement)
@@ -152,16 +152,40 @@ map <leader>gb <Action>(Forward)
 " Run & Debugging
 map <leader>pd <Action>(Debug)
 map <leader>pq <Action>(Stop)
-map <leader>pb <Action>(ToggleLineBreakpoint)
-map <leader>pt :action RerunTests<cr>
-map <leader>pT :action RerunFailedTests<cr>
-map <leader>pp :action Tool_External Tools_Alacritty<cr>
+map <leader>pt :action Tool_External Tools_Alacritty<cr>
 map <leader>pr :action IdeaVim.ReloadVimRc.reload<cr> 
+map <leader>pv :action RevealIn<cr>
+
+let g:WhichKeyDesc_run = "<leader>p Run 🏃"
+let g:WhichKeyDesc_Debug = "<leader>pq Debug 🐛"
+let g:WhichKeyDesc_Stop = "<leader>pd Stop 🚫"
+let g:WhichKeyDesc_terminal = "<leader>pt Terminal 🖥️"
+let g:WhichKeyDesc_reloadideavim = "<leader>pr Reload 🔄"
+let g:WhichKeyDesc_containing_folder = "<leader>pv Containing Folder 📁"
+
+" Tests
+if &ide =~? 'rider'
+    map <leader>ts <Action>(RiderUnitTestRunSolutionAction)
+    map <leader>tf <Action>(RiderUnitTestRerunBrokenSplitAction)
+    map <leader>tp <Action>(RiderUnitTestQuickListPopupAction) 
+    map <leader>td <Action>(RiderUnitTestDebugContextAction)
+    map <leader>tt <Action>(RiderUnitTestRunContextAction)
+    
+    let g:WhichKeyDesc_Tests = "<leader>t Tests 🚦"
+    let g:WhichKeyDesc_run_all_tests = "<leader>ts Run All 🟩"
+    let g:WhichKeyDesc_run_broken_tests = "<leader>tf Run Failed 🟥"
+    let g:WhichKeyDesc_tests_menu = "<leader>tp Menu 📲"
+    let g:WhichKeyDesc_debug_tests = "<leader>td Debug Selected 🐛🔛"
+    let g:WhichKeyDesc_run_selected_tests = "<leader>tt Run Selected 🔛"
+endif
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_toggle_breakpoint = "<leader>b Toggle Breakpoint 🔴"
 
 " Which Key
 "" ========================================================
 let g:WhichKey_FontSize = 16
-let g:WhichKey_Divider = " ➡️ "
+let g:WhichKey_Divider = " → "
 let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#f335b2"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
@@ -169,17 +193,3 @@ let g:WhichKey_ShowTypedSequence = "true"
 let g:WhichKey_ShowVimActions = "true"
 
 let g:WhichKeyDesc_leader = "<leader> Leader key"
-
-" Groups
-let g:WhichKeyDesc_group1 = "<leader>h Harpoon ⚓"
-let g:WhichKeyDesc_group2 = "<leader>f Telescope 🔭"
-let g:WhichKeyDesc_group3 = "<leader>p Run & Debugging 🏃"
-let g:WhichKeyDesc_group4 = "<leader>s Sneak 👟"
-let g:WhichKeyDesc_group5 = "<leader>q Close ❌"
-let g:WhichKeyDesc_group6 = "<leader>r Refactor ✒️""
-
-let g:WhichKeyDesc_group6 = "<leader><leader>"
-
-" Commands
-let g:WhichKeyDesc_fd = "<leader>/ Find 📄🔍"
-" let g:WhichKeyDesc_ff = "<leader>. Find Files 📂🔍"

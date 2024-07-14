@@ -52,13 +52,3 @@ Update-Link $alacrittyThemeConfig ($alacrittyThemesFolder + "\catppuccin-mocha.t
 $neovimInputFolder = Join-Path $PSScriptRoot "nvim\"
 $neovimOutputFolder = $appData + "/../Local/nvim/"
 Update-Link $neovimInputFolder $neovimOutputFolder
-
-# KOMREBI
-$komorebiInputFolder = Join-Path $PSScriptRoot "komorebi"
-$komorebiOutputFolder = Join-Path $userProfile ".config\komorebi"
-Update-Link $komorebiInputFolder $komorebiOutputFolder
-
-# whkd
-$whkdInputFolder = Join-Path $PSScriptRoot "whkd"
-$whkdOutputFolder = Join-Path $userProfile ".config\whkd"
-Update-Link $whkdInputFolder $whkdOutputFolder

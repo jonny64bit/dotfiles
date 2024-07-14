@@ -24,14 +24,14 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.cmd(":set noshellslash")
+
 vim.cmd.colorscheme "catppuccin-mocha"
 
 vim.opt.cmdheight = 0
 
 vim.o.timeout = true
 vim.o.timeoutlen = 300
-
--- vim.keymap.set("i", "jk", "<esc>")
 
 -- Shell Options
 local powershell_options = {
