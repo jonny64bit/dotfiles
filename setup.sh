@@ -5,8 +5,8 @@ configs=(
     hypr
 	nvim
     waybar
-    alactirry
     dunst
+    alacritty
 )
 
 config_directory="$HOME/.config"
