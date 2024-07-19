@@ -2,12 +2,11 @@
 
 # what directories should be installed
 configs=(
-    qtile
-    rofi
-    alacritty
-    fish
+    hypr
+	nvim
+    waybar
+    alactirry
     dunst
-    lazygit
 )
 
 config_directory="$HOME/.config"
