@@ -7,6 +7,7 @@ configs=(
     waybar
     dunst
     alacritty
+    lazygit
 )
 
 config_directory="$HOME/.config"
@@ -30,6 +31,8 @@ for config in ${configs[@]}; do
     check_and_create_directory "$config_directory/$config"
     stow -v -R -d "$PWD/$config" -t "$config_directory/$config" .
 done
+
+ln -f "$PWD/ideavim/.ideavimrc" "$HOME/.ideavimrc"
 
 echo ""
 echo ""
