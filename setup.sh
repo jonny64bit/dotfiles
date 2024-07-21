@@ -8,6 +8,7 @@ configs=(
     dunst
     alacritty
     lazygit
+    rofi
 )
 
 config_directory="$HOME/.config"
