@@ -5,7 +5,7 @@ configs=(
     hypr
 	nvim
     waybar
-    dunst
+    swaync
     alacritty
     lazygit
     rofi
