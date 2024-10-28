@@ -69,7 +69,7 @@ nmap <leader>/ :action Find<cr>
 let g:WhichKeyDesc_fd = "<leader>/ Find 📄🔍"
 
 nmap <leader>. :action FindInPath<cr>
-let g:WhichKeyDesc_fd = "<leader>. Find In Files📄🔍"
+let g:WhichKeyDesc_fd = "<leader>. Find In Files 📄🔍"
 
 " Popup navigation
 map <C-j> <Action>(EditorDown)
@@ -114,6 +114,8 @@ map <leader>fo <action>(RecentFiles)
 map <leader>fs <Action>(FileStructurePopup)
 map <leader>fc <Action>(GotoClass)
 
+let g:WhichKeyDesc_FileSearch = "<leader>f File Search 🔎"
+
 " ⚓ Harpoon
 map <leader>hh <action>(ShowBookmarks)
 map <leader>ha <action>(ToggleBookmark)
@@ -148,6 +150,8 @@ map <leader>gu <Action>(ShowUsages)
 map <leader>gt <Action>(GotoTest)
 map <leader>gf <Action>(Back)
 map <leader>gb <Action>(Forward)
+
+let g:WhichKeyDesc_GoToCode = "<leader>g Go To 🚶‍♂️‍➡️"
 
 " Run & Debugging
 map <leader>pd <Action>(Debug)
