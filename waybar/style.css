@@ -132,4 +132,5 @@ window#waybar {
 #network {
     color: @red;
     margin-right: 10px;
+    margin-left: 10px;
 }
