@@ -6,5 +6,7 @@ The idea being that I can run the setup script on a new machine and have it setu
 
 I admit though this has spawned into a bit of a monster, but I'm having fun with it. 🤖
 
+Test
+
 - [Windows](./Windows.md)
 - [Arch Linux](./Arch.md)
