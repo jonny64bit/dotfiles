@@ -72,8 +72,8 @@ nmap <leader>. :action FindInPath<cr>
 let g:WhichKeyDesc_fd = "<leader>. Find In Files 📄🔍"
 
 " Popup navigation
-map <C-j> <Action>(EditorDown)
-map <C-k> <Action>(EditorUp)
+inoremap <C-j> <down>
+inoremap <C-k> <up>
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
