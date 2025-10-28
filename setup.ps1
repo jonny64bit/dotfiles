@@ -33,8 +33,8 @@ $ideaVimConfig = Join-Path $PSScriptRoot ".\ideavim\.ideavimrc"
 Update-Link $ideaVimConfig ($userProfile + "\.ideavimrc")
 
 # Alacritty 🦥
-$alacrittyConfig = Join-Path $PSScriptRoot "alacritty-windows\alacritty.toml"
-$alacrittyThemeConfig = Join-Path $PSScriptRoot "alacritty-windows\themes\catppuccin-mocha.toml"
+$alacrittyConfig = Join-Path $PSScriptRoot "alacritty\alacritty.toml"
+$alacrittyThemeConfig = Join-Path $PSScriptRoot "alacritty\themes\catppuccin-mocha.toml"
 $alacrittyFolder = $appData + "\alacritty\"
 $alacrittyThemesFolder = $appData + "\alacritty\themes\"
 
